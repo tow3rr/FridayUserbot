@@ -24,7 +24,7 @@ async def set_not_afk(event):
         try:
             await borg.send_message(  # pylint:disable=E0602
                 Config.PRIVATE_GROUP_ID,  # pylint:disable=E0602
-                "#AfkLogger My Boss Went Afk"
+                "SONO SFK"
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await borg.send_message(  # pylint:disable=E0602
@@ -61,9 +61,9 @@ async def _(event):
             afk_time = datetime.datetime.now()  # pylint:disable=E0602
         USER_AFK = f"yes: {reason}"  # pylint:disable=E0602
         if reason:
-            await event.edit(f"My Boss Is Going Afk ! And The Reason is {reason}")
+            await event.edit(f"Sto andando AFK {reason}")
         else:
-            await event.edit(f"My Boss is Going")
+            await event.edit(f"VADO AFK")
         await asyncio.sleep(5)
         await event.delete()
         try:
@@ -85,7 +85,7 @@ async def on_afk(event):
     global USER_AFK  # pylint:disable=E0602
     global afk_time  # pylint:disable=E0602
     global last_afk_message  # pylint:disable=E0602
-    afk_since = "`a while ago`"
+    afk_since = "`A dopo`"
     current_message_text = event.message.message.lower()
     if "afk" in current_message_text:
         # userbot's should not reply to other userbot's
@@ -121,10 +121,10 @@ async def on_afk(event):
             else:
                 afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
-        message_to_reply = f"**My Boss is AFK** ! \n\n**Reason** : `{reason}` \n\n**Afk Since** : {afk_since}" + \
-            f"\n\n__Kindly Leave A Message__ ! \n`He Will Reply To You Soon !`" \
+        message_to_reply = f"**Il mio capo è AFK** ! \n\n**Motivo** : `{reason}` \n\n**è AFK da** : {afk_since}" + \
+            f"\n\n__MAnderà un messaggio__ ! \n`Ciao !`" \
             if reason \
-            else f"**Hello, Boss Is AFK Right Now And May Be Forgot List Reason ! Any Way He Will Come Back Soon !**"
+            else f"**Ciao, il mio capo è AFK senza nessuna motivazione. !**"
         msg = await event.reply(message_to_reply)
         await asyncio.sleep(5)
         if event.chat_id in last_afk_message:  # pylint:disable=E0602
