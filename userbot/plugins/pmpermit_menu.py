@@ -28,19 +28,19 @@ async def _(event):
             return
         if event.is_private:
          
-         SADLYF = ("`Hello. You are accessing the availabe menu of my peru master,`"
+         SADLYF = ("`Ok,hai aperto la gui ora segui le istruzioni`"
                f"{DEFAULTUSER}.\n"
-               "__Let's make this smooth and let me know why you are here ! So Select A Reason And Send it's Number__\n"
-               "**Choose one of the following reasons why you are here:**\n\n"
-               "`1`. To chat with my master\n"
-               "`2`. To Spam my master's Inbox.\n"
-               "`3`. To enquire something\n"
-               "`4`. To request something\n")
-         ONE = ("`I Have Registered Your Request ! Don't Worry My Master Will Be Here Soon To Chat With You !` \n\n")
-         TWO = ("`Please Don't Spam My Master Inbox ! You Have Been Reported Until Further Notice !`")
-         FOUR = ("`Okay ! I See You Can Request Your Demands ! Please Wait Untill My Master Approves You` !")
-         FIVE = ("`Okay. please have the basic manners as to not bother my master too much. If he wishes to help you, he will respond to you soon.`\n**Kindly Do not ask repeatdly else you will be blocked and reported.**")
-         LWARN = ("**This is your last warning. DO NOT send another message else you will be blocked and reported. Keep patience. My master will respond you ASAP.**\n__Use__ `/start` __to go back to the main menu.__")
+               "__Scegli il numero per far capire perchè sei qui__\n"
+               "**Scegli un numero, solo 1:**\n\n"
+               "`1`. Per parlare con il mio capo\n"
+               "`2`. Per spammare\n"
+               "`3`. Per fargli una domanda\n"
+               "`4`. Per rompere i coglioni\n")
+         ONE = ("`Ok, ho avvisato il mio capo! appena potrà ti risponderà !` \n\n")
+         TWO = ("`Non spammare, saresti automaticamente bloccato da me!`")
+         FOUR = ("`Ok, il mio capo è stato avvisato, ti risponderà il prima possibile` !")
+         FIVE = ("`Cosa cazzo vuoi?`\n**evita di cagare il cazzo.**")
+         LWARN = ("**Ultimo avviso. Non scrivere altri messaggi o verrai automaticamente bloccato da me, per tornare indietro .**\n__scrivi__ `/start` __per tornare nel menù.__")
         async with borg.conversation(chat) as conv:
          await borg.send_message(chat, SADLYF)
          chat_id = event.from_id
@@ -94,7 +94,7 @@ async def _(event):
                      await asyncio.sleep(3)
                      await event.client(functions.contacts.BlockRequest(chat_id))
          else:
-             await borg.send_message(chat, "`You have entered an invalid command. Please send /start again or do not send another message if you do not wish to be blocked and reported.`")
+             await borg.send_message(chat, "`Hai inserito un comando non valido. Scrivi /start ancora e aspetta.`")
              response = await conv.get_response(chat)
              z = response.text
              if not z == "/start":
